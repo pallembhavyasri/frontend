@@ -50,21 +50,21 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy'){   
-        //     // when{
-        //     //     expression{
-        //     //         params.deploy
-        //     //     }
-        //     // }
-        //     steps{
-        //         script{
-        //             def params = [
-        //                 string(name: 'appVersion', value: "${appVersion}")
-        //             ]
-        //             build job: 'frontend CD', parameters: params, wait: false // false here indicates just the CI is success and doesn't care about CD success or failure $ bulid job indicates the node name 
-        //         }
-        //     }
-        // }
+        stage('Deploy'){   
+            // when{
+            //     expression{
+            //         params.deploy
+            //     }
+            // }
+            steps{
+                script{
+                    def params = [
+                        string(name: 'appVersion', value: "${appVersion}")
+                    ]
+                    build job: 'frontend CD', parameters: params, wait: false // false here indicates just the CI is success and doesn't care about CD success or failure $ bulid job indicates the node name 
+                }
+            }
+        }
     }
     post { 
         always { 
